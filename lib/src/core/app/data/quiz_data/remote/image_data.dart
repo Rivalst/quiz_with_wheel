@@ -53,7 +53,7 @@ class ImageDataProviderImpl extends ImageDataProvider {
   Future<Uint8List?> _startQuizBody() async {
     final response = await http.get(
       Uri.parse(
-        'https://apps-assets.vercel.app/illustrations/undraw_Questions_re_1fy7.png',
+        'https://apps-assets.vercel.app/illustrations/new-undraw_Questions.png',
       ),
     );
 

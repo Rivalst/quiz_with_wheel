@@ -49,6 +49,7 @@ class _StartViewState extends State<StartView> {
                     child: Column(
                       children: [
                         Button(
+                          buttonName: 'Start Quiz',
                           textColor: AppColors.whiteBlue,
                           buttonColor: AppColors.black,
                           borderColor: Colors.transparent,
@@ -56,6 +57,7 @@ class _StartViewState extends State<StartView> {
                         ),
                         const SizedBox(height: 15.0),
                         Button(
+                          buttonName: 'View World',
                           textColor: AppColors.black,
                           buttonColor: AppColors.white,
                           borderColor: AppColors.grey,

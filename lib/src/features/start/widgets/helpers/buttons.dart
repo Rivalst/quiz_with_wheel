@@ -4,12 +4,14 @@ class Button extends StatelessWidget {
   final Color textColor;
   final Color buttonColor;
   final Color borderColor;
+  final String buttonName;
   final VoidCallback onTap;
 
   const Button({
     required this.textColor,
     required this.buttonColor,
     required this.borderColor,
+    required this.buttonName,
     required this.onTap,
     super.key,
   });
@@ -30,7 +32,7 @@ class Button extends StatelessWidget {
           ),
         ),
         child: Text(
-          'Start Quiz',
+          buttonName,
           style: TextStyle(
             color: textColor,
             fontSize: 20,
