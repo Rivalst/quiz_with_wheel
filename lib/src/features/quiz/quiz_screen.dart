@@ -55,28 +55,10 @@ class _QuizScreenState extends State<QuizScreen> with TickerProviderStateMixin {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
+              const Row(
                 children: [
-                  GestureDetector(
-                    onTap: () => null,
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFebe6fd),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: const Icon(
-                        Icons.arrow_back_ios_new,
-                        size: 15,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10.0,
-                  ),
-                  const Text(
-                    'Aptitude Test',
+                  Text(
+                    ' Test',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0,
@@ -149,7 +131,7 @@ class _QuizScreenState extends State<QuizScreen> with TickerProviderStateMixin {
     );
 
     if (isLast) {
-      Navigator.pushNamed(context, 'home/wheel');
+      Navigator.pushReplacementNamed(context, 'home/wheel');
     }
   }
 

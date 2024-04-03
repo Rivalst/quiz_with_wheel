@@ -218,7 +218,7 @@ class QuizHelperAncientEgyptQuestions extends QuizHelper {
 
 // int
 
-const timerStandardSeconds = 2;
+const timerStandardSeconds = 120;
 
 const fortuneItems = [
   FortuneItem(name: 'Dollar'),
