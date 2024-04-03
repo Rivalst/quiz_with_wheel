@@ -224,7 +224,7 @@ const fortuneItems = [
   FortuneItem(name: 'Dollar'),
   FortuneItem(name: 'Cross'),
   FortuneItem(name: 'Eye'),
-  FortuneItem(name: 'Green ruby'),
+  FortuneItem(name: 'Coin'),
   FortuneItem(name: 'Red head'),
   FortuneItem(name: 'Green head'),
 ];
