@@ -74,7 +74,7 @@ class _StartViewState extends State<StartView> {
   }
 
   void _startQuizTapped(BuildContext context) {
-    Navigator.pushReplacementNamed(context, 'home/quiz');
+    Navigator.pushReplacementNamed(context, 'home/wheel');
   }
 
   late Uint8List? _imageBytes;
