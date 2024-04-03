@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 /// Interface for a image data
 /// {@endtemplate}
 abstract interface class ImageDataProvider {
+  /// Loads all images for apps
   Future<Map<String, Uint8List?>> getImages();
 }
 
