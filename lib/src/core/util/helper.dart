@@ -216,4 +216,4 @@ class QuizHelperAncientEgyptQuestions extends QuizHelper {
 
 // int
 
-const timerStandardSeconds = 120;
+const timerStandardSeconds = 2;

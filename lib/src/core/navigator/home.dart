@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_with_wheel/src/features/fortune_wheel/fortune_wheel_screen.dart';
+import 'package:quiz_with_wheel/src/features/quiz/bloc/quiz_score_bloc.dart';
 import 'package:quiz_with_wheel/src/features/quiz/quiz_screen.dart';
 import 'package:quiz_with_wheel/src/features/start/start_screen.dart';
 
@@ -18,7 +20,10 @@ class HomeScreen extends StatelessWidget {
           case 'home/start':
             builder = (BuildContext _) => const StartScreen();
           case 'home/quiz':
-            builder = (BuildContext _) => const QuizScreen();
+            builder = (BuildContext _) => BlocProvider(
+                  create: (context) => QuizScoreBloc(),
+                  child: const QuizScreen(),
+                );
           case 'home/wheel':
             builder = (BuildContext _) => const FortuneWheelScreen();
           default:

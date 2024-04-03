@@ -56,26 +56,33 @@ class _SplashScreenState extends State<SplashScreen>
                   ? Image.memory(widget.imageBytes!)
                   : const SizedBox.shrink(),
               const Spacer(),
+              const Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    'WORLD QUIZ',
+                    maxLines: 1,
+                    softWrap: true,
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: AppColors.black,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 40),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 80.0, right: 80.0, bottom: 60.0),
-                child: Column(
-                  children: [
-                    Text(
-                      'Quizzes is loading',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.grey.withOpacity(0.8),
-                      ),
-                    ),
-                    LinearProgressIndicator(
-                      minHeight: 15,
-                      backgroundColor: AppColors.black,
-                      color: AppColors.whiteBlue,
-                      borderRadius: BorderRadius.circular(20.0),
-                      value: _controller.value,
-                    )
-                  ],
+                  left: 80.0,
+                  right: 80.0,
+                  bottom: 60.0,
+                ),
+                child: LinearProgressIndicator(
+                  minHeight: 15,
+                  backgroundColor: AppColors.black,
+                  color: AppColors.whiteBlue,
+                  borderRadius: BorderRadius.circular(20.0),
+                  value: _controller.value,
                 ),
               ),
             ],
