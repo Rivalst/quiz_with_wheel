@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_with_wheel/src/core/app/bloc/quiz_bloc.dart';
-import 'package:quiz_with_wheel/src/features/quiz/quiz_screen.dart';
 import 'package:quiz_with_wheel/src/features/splash/splash_screen.dart';
 
 class Root extends StatelessWidget {
@@ -12,15 +11,15 @@ class Root extends StatelessWidget {
     return BlocBuilder<QuizBloc, QuizzesState>(builder: (context, state) {
       return state.when(
         initial: () {
-          // return const SplashScreen();
+          return Scaffold();
         },
-        loading: () {
-          // return const SplashScreen();
+        loading: (splash, _) {
+          return SplashScreen(imageBytes: splash);
         },
-        loaded: (quizzes) {
-          // return const QuizScreen();
+        loaded: (quizzes, splash, quizStart) {
+          return SplashScreen(imageBytes: splash);
         },
-        error: (quizzes, messages) {
+        error: (quizzes, splashImage, quizStartImage, messages) {
           // in this place we can added error screen
           return ColoredBox(
             color: Colors.red,

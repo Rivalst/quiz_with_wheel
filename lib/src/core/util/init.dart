@@ -1,6 +1,7 @@
-
 import 'package:quiz_with_wheel/src/core/app/data/quiz_data/local/quiz_data_local.dart';
 import 'package:quiz_with_wheel/src/core/app/data/quiz_data/quiz_repository.dart';
+import 'package:quiz_with_wheel/src/core/app/data/quiz_data/remote/image_data.dart';
+import 'package:quiz_with_wheel/src/core/app/data/quiz_data/remote/image_repository.dart';
 import 'package:quiz_with_wheel/src/core/util/dependencies.dart';
 import 'package:quiz_with_wheel/src/core/util/helper.dart';
 import 'package:quiz_with_wheel/src/core/util/logger.dart';
@@ -17,7 +18,13 @@ final class InitializationProcessor {
     final quizData = QuizDataLocalProviderImpl(quizHelper: quizHelper);
     final quizRepository = QuizRepositoryImpl(quizDataProvider: quizData);
 
-    return Dependencies(quizRepository: quizRepository);
+    final imageData = ImageDataProviderImpl();
+    final imageRepository = ImageRepositoryImpl(imageDataProvider: imageData);
+
+    return Dependencies(
+      quizRepository: quizRepository,
+      imageRepository: imageRepository,
+    );
   }
 
   /// Method that starts the initialization process
