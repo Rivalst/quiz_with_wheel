@@ -1,3 +1,5 @@
+import 'package:quiz_with_wheel/src/features/fortune_wheel/data/model/fortune_item_model.dart';
+
 /// {@template dependencies}
 /// Sealed class helper for quizzes
 /// {@endtemplate}
@@ -217,3 +219,12 @@ class QuizHelperAncientEgyptQuestions extends QuizHelper {
 // int
 
 const timerStandardSeconds = 120;
+
+const fortuneItems = [
+  FortuneItem(name: 'Dollar'),
+  FortuneItem(name: 'Cross'),
+  FortuneItem(name: 'Eye'),
+  FortuneItem(name: 'Coin'),
+  FortuneItem(name: 'Red head'),
+  FortuneItem(name: 'Green head'),
+];

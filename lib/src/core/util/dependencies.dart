@@ -1,13 +1,18 @@
 import 'package:quiz_with_wheel/src/core/app/data/quiz_data/quiz_repository.dart';
+import 'package:quiz_with_wheel/src/core/app/data/quiz_data/remote/image_repository.dart';
 
 /// {@template dependencies}
 /// Dependencies container
 /// {@endtemplate}
 base class Dependencies {
   final QuizRepository quizRepository;
+  final ImageRepository imageRepository;
 
   /// {@macro dependencies}
-  const Dependencies({required this.quizRepository});
+  const Dependencies({
+    required this.quizRepository,
+    required this.imageRepository,
+  });
 }
 
 /// {@template initialization_result}
