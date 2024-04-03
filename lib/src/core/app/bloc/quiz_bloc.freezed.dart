@@ -286,11 +286,11 @@ mixin _$QuizzesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)
+    required TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)
         loading,
     required TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)
@@ -300,11 +300,11 @@ mixin _$QuizzesState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult? Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult? Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?
@@ -314,11 +314,11 @@ mixin _$QuizzesState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?
@@ -411,11 +411,11 @@ class _$InitialQuizzesStateImpl extends _InitialQuizzesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)
+    required TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)
         loading,
     required TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)
@@ -428,11 +428,11 @@ class _$InitialQuizzesStateImpl extends _InitialQuizzesState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult? Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult? Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?
@@ -445,11 +445,11 @@ class _$InitialQuizzesStateImpl extends _InitialQuizzesState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?
@@ -511,7 +511,10 @@ abstract class _$$LoadingQuizzesStateImplCopyWith<$Res> {
           $Res Function(_$LoadingQuizzesStateImpl) then) =
       __$$LoadingQuizzesStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Uint8List? splashImageBytes, Uint8List? quizStartImageBytes});
+  $Res call(
+      {Uint8List? splashImageBytes,
+      Uint8List? quizStartImageBytes,
+      Uint8List? fortuneWheelImageBytes});
 }
 
 /// @nodoc
@@ -527,6 +530,7 @@ class __$$LoadingQuizzesStateImplCopyWithImpl<$Res>
   $Res call({
     Object? splashImageBytes = freezed,
     Object? quizStartImageBytes = freezed,
+    Object? fortuneWheelImageBytes = freezed,
   }) {
     return _then(_$LoadingQuizzesStateImpl(
       freezed == splashImageBytes
@@ -537,6 +541,10 @@ class __$$LoadingQuizzesStateImplCopyWithImpl<$Res>
           ? _value.quizStartImageBytes
           : quizStartImageBytes // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
+      freezed == fortuneWheelImageBytes
+          ? _value.fortuneWheelImageBytes
+          : fortuneWheelImageBytes // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
     ));
   }
 }
@@ -544,18 +552,20 @@ class __$$LoadingQuizzesStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadingQuizzesStateImpl extends _LoadingQuizzesState {
-  const _$LoadingQuizzesStateImpl(
-      this.splashImageBytes, this.quizStartImageBytes)
+  const _$LoadingQuizzesStateImpl(this.splashImageBytes,
+      this.quizStartImageBytes, this.fortuneWheelImageBytes)
       : super._();
 
   @override
   final Uint8List? splashImageBytes;
   @override
   final Uint8List? quizStartImageBytes;
+  @override
+  final Uint8List? fortuneWheelImageBytes;
 
   @override
   String toString() {
-    return 'QuizzesState.loading(splashImageBytes: $splashImageBytes, quizStartImageBytes: $quizStartImageBytes)';
+    return 'QuizzesState.loading(splashImageBytes: $splashImageBytes, quizStartImageBytes: $quizStartImageBytes, fortuneWheelImageBytes: $fortuneWheelImageBytes)';
   }
 
   @override
@@ -566,14 +576,17 @@ class _$LoadingQuizzesStateImpl extends _LoadingQuizzesState {
             const DeepCollectionEquality()
                 .equals(other.splashImageBytes, splashImageBytes) &&
             const DeepCollectionEquality()
-                .equals(other.quizStartImageBytes, quizStartImageBytes));
+                .equals(other.quizStartImageBytes, quizStartImageBytes) &&
+            const DeepCollectionEquality()
+                .equals(other.fortuneWheelImageBytes, fortuneWheelImageBytes));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(splashImageBytes),
-      const DeepCollectionEquality().hash(quizStartImageBytes));
+      const DeepCollectionEquality().hash(quizStartImageBytes),
+      const DeepCollectionEquality().hash(fortuneWheelImageBytes));
 
   @JsonKey(ignore: true)
   @override
@@ -586,45 +599,47 @@ class _$LoadingQuizzesStateImpl extends _LoadingQuizzesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)
+    required TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)
         loading,
     required TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)
         error,
   }) {
-    return loading(splashImageBytes, quizStartImageBytes);
+    return loading(
+        splashImageBytes, quizStartImageBytes, fortuneWheelImageBytes);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult? Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult? Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?
         error,
   }) {
-    return loading?.call(splashImageBytes, quizStartImageBytes);
+    return loading?.call(
+        splashImageBytes, quizStartImageBytes, fortuneWheelImageBytes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?
@@ -632,7 +647,8 @@ class _$LoadingQuizzesStateImpl extends _LoadingQuizzesState {
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(splashImageBytes, quizStartImageBytes);
+      return loading(
+          splashImageBytes, quizStartImageBytes, fortuneWheelImageBytes);
     }
     return orElse();
   }
@@ -676,12 +692,15 @@ class _$LoadingQuizzesStateImpl extends _LoadingQuizzesState {
 }
 
 abstract class _LoadingQuizzesState extends QuizzesState {
-  const factory _LoadingQuizzesState(final Uint8List? splashImageBytes,
-      final Uint8List? quizStartImageBytes) = _$LoadingQuizzesStateImpl;
+  const factory _LoadingQuizzesState(
+      final Uint8List? splashImageBytes,
+      final Uint8List? quizStartImageBytes,
+      final Uint8List? fortuneWheelImageBytes) = _$LoadingQuizzesStateImpl;
   const _LoadingQuizzesState._() : super._();
 
   Uint8List? get splashImageBytes;
   Uint8List? get quizStartImageBytes;
+  Uint8List? get fortuneWheelImageBytes;
   @JsonKey(ignore: true)
   _$$LoadingQuizzesStateImplCopyWith<_$LoadingQuizzesStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -696,7 +715,8 @@ abstract class _$$LoadedQuizzesStateImplCopyWith<$Res> {
   $Res call(
       {List<Quiz> quizzes,
       Uint8List? splashImageBytes,
-      Uint8List? quizStartImageBytes});
+      Uint8List? quizStartImageBytes,
+      Uint8List? fortuneWheelBytes});
 }
 
 /// @nodoc
@@ -713,6 +733,7 @@ class __$$LoadedQuizzesStateImplCopyWithImpl<$Res>
     Object? quizzes = null,
     Object? splashImageBytes = freezed,
     Object? quizStartImageBytes = freezed,
+    Object? fortuneWheelBytes = freezed,
   }) {
     return _then(_$LoadedQuizzesStateImpl(
       null == quizzes
@@ -727,6 +748,10 @@ class __$$LoadedQuizzesStateImplCopyWithImpl<$Res>
           ? _value.quizStartImageBytes
           : quizStartImageBytes // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
+      freezed == fortuneWheelBytes
+          ? _value.fortuneWheelBytes
+          : fortuneWheelBytes // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
     ));
   }
 }
@@ -734,8 +759,8 @@ class __$$LoadedQuizzesStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedQuizzesStateImpl extends _LoadedQuizzesState {
-  const _$LoadedQuizzesStateImpl(
-      final List<Quiz> quizzes, this.splashImageBytes, this.quizStartImageBytes)
+  const _$LoadedQuizzesStateImpl(final List<Quiz> quizzes,
+      this.splashImageBytes, this.quizStartImageBytes, this.fortuneWheelBytes)
       : _quizzes = quizzes,
         super._();
 
@@ -751,10 +776,12 @@ class _$LoadedQuizzesStateImpl extends _LoadedQuizzesState {
   final Uint8List? splashImageBytes;
   @override
   final Uint8List? quizStartImageBytes;
+  @override
+  final Uint8List? fortuneWheelBytes;
 
   @override
   String toString() {
-    return 'QuizzesState.loaded(quizzes: $quizzes, splashImageBytes: $splashImageBytes, quizStartImageBytes: $quizStartImageBytes)';
+    return 'QuizzesState.loaded(quizzes: $quizzes, splashImageBytes: $splashImageBytes, quizStartImageBytes: $quizStartImageBytes, fortuneWheelBytes: $fortuneWheelBytes)';
   }
 
   @override
@@ -766,7 +793,9 @@ class _$LoadedQuizzesStateImpl extends _LoadedQuizzesState {
             const DeepCollectionEquality()
                 .equals(other.splashImageBytes, splashImageBytes) &&
             const DeepCollectionEquality()
-                .equals(other.quizStartImageBytes, quizStartImageBytes));
+                .equals(other.quizStartImageBytes, quizStartImageBytes) &&
+            const DeepCollectionEquality()
+                .equals(other.fortuneWheelBytes, fortuneWheelBytes));
   }
 
   @override
@@ -774,7 +803,8 @@ class _$LoadedQuizzesStateImpl extends _LoadedQuizzesState {
       runtimeType,
       const DeepCollectionEquality().hash(_quizzes),
       const DeepCollectionEquality().hash(splashImageBytes),
-      const DeepCollectionEquality().hash(quizStartImageBytes));
+      const DeepCollectionEquality().hash(quizStartImageBytes),
+      const DeepCollectionEquality().hash(fortuneWheelBytes));
 
   @JsonKey(ignore: true)
   @override
@@ -787,45 +817,47 @@ class _$LoadedQuizzesStateImpl extends _LoadedQuizzesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)
+    required TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)
         loading,
     required TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)
         error,
   }) {
-    return loaded(quizzes, splashImageBytes, quizStartImageBytes);
+    return loaded(
+        quizzes, splashImageBytes, quizStartImageBytes, fortuneWheelBytes);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult? Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult? Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?
         error,
   }) {
-    return loaded?.call(quizzes, splashImageBytes, quizStartImageBytes);
+    return loaded?.call(
+        quizzes, splashImageBytes, quizStartImageBytes, fortuneWheelBytes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?
@@ -833,7 +865,8 @@ class _$LoadedQuizzesStateImpl extends _LoadedQuizzesState {
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(quizzes, splashImageBytes, quizStartImageBytes);
+      return loaded(
+          quizzes, splashImageBytes, quizStartImageBytes, fortuneWheelBytes);
     }
     return orElse();
   }
@@ -880,12 +913,14 @@ abstract class _LoadedQuizzesState extends QuizzesState {
   const factory _LoadedQuizzesState(
       final List<Quiz> quizzes,
       final Uint8List? splashImageBytes,
-      final Uint8List? quizStartImageBytes) = _$LoadedQuizzesStateImpl;
+      final Uint8List? quizStartImageBytes,
+      final Uint8List? fortuneWheelBytes) = _$LoadedQuizzesStateImpl;
   const _LoadedQuizzesState._() : super._();
 
   List<Quiz> get quizzes;
   Uint8List? get splashImageBytes;
   Uint8List? get quizStartImageBytes;
+  Uint8List? get fortuneWheelBytes;
   @JsonKey(ignore: true)
   _$$LoadedQuizzesStateImplCopyWith<_$LoadedQuizzesStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1010,11 +1045,11 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)
+    required TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)
         loading,
     required TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)
@@ -1027,11 +1062,11 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult? Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult? Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?
@@ -1044,11 +1079,11 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(
-            Uint8List? splashImageBytes, Uint8List? quizStartImageBytes)?
+    TResult Function(Uint8List? splashImageBytes,
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelImageBytes)?
         loading,
     TResult Function(List<Quiz> quizzes, Uint8List? splashImageBytes,
-            Uint8List? quizStartImageBytes)?
+            Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
             Uint8List? quizStartImage, String message)?

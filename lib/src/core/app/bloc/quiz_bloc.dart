@@ -23,22 +23,29 @@ class QuizzesState with _$QuizzesState {
 
   Uint8List? get quizStartImage => when<Uint8List?>(
         initial: () => null,
-        loading: (_, quizStart) => quizStart,
-        loaded: (quizzes, _, start) => start,
+        loading: (_, quizStart, __) => quizStart,
+        loaded: (_, __, start, ___) => start,
         error: (_, __, start, ___) => start,
       );
 
   Uint8List? get splashImage => when<Uint8List?>(
         initial: () => null,
-        loading: (splash, _) => splash,
-        loaded: (quizzes, splash, _) => splash,
+        loading: (splash, _, __) => splash,
+        loaded: (_, splash, __, ___) => splash,
+        error: (_, splash, __, ___) => splash,
+      );
+
+  Uint8List? get fortuneWheelImage => when<Uint8List?>(
+        initial: () => null,
+        loading: (splash, _, __) => splash,
+        loaded: (_, __, ___, fortuneWheel) => fortuneWheel,
         error: (_, splash, __, ___) => splash,
       );
 
   List<Quiz>? get quizzes => when<List<Quiz>?>(
         initial: () => null,
-        loading: (_, __) => null,
-        loaded: (quizzes, splash, start) => quizzes,
+        loading: (_, __, ___) => null,
+        loaded: (quizzes, _, __, ___) => quizzes,
         error: (quizzes, _, __, ___) => quizzes,
       );
 
@@ -47,12 +54,14 @@ class QuizzesState with _$QuizzesState {
   const factory QuizzesState.loading(
     Uint8List? splashImageBytes,
     Uint8List? quizStartImageBytes,
+    Uint8List? fortuneWheelImageBytes,
   ) = _LoadingQuizzesState;
 
   const factory QuizzesState.loaded(
     List<Quiz> quizzes,
     Uint8List? splashImageBytes,
     Uint8List? quizStartImageBytes,
+    Uint8List? fortuneWheelBytes,
   ) = _LoadedQuizzesState;
 
   const factory QuizzesState.error({
@@ -89,12 +98,12 @@ class QuizBloc extends Bloc<QuizzesEvent, QuizzesState> {
   ) async {
     try {
       final randomQuizzes = await _quizRepository.getRandomAllQuizzes();
-
       emitter(
         QuizzesState.loaded(
           randomQuizzes,
           state.splashImage,
           state.quizStartImage,
+          state.fortuneWheelImage,
         ),
       );
     } catch (e, s) {
@@ -113,10 +122,12 @@ class QuizBloc extends Bloc<QuizzesEvent, QuizzesState> {
       final images = await _imageRepository.getImages();
       final splashImageBytes = images['splash'];
       final quizStartImageBytes = images['quizStart'];
+      final fortuneWheelBytes = images['wheel'];
       emitter(
         QuizzesState.loading(
           splashImageBytes,
           quizStartImageBytes,
+          fortuneWheelBytes,
         ),
       );
     } catch (e, s) {

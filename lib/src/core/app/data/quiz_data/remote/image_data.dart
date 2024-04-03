@@ -25,6 +25,9 @@ class ImageDataProviderImpl extends ImageDataProvider {
     final quizStartImageBody = await _startQuizBody();
     images['quizStart'] = quizStartImageBody;
 
+    final fortuneWheelImageBody = await _wheelBody();
+    images['wheel'] = fortuneWheelImageBody;
+
     completer.complete(images);
 
     return completer.future;
@@ -59,6 +62,23 @@ class ImageDataProviderImpl extends ImageDataProvider {
     } else {
       logger.info(
         'Quiz start image response status code is: ${response.statusCode}',
+      );
+      return null;
+    }
+  }
+
+  Future<Uint8List?> _wheelBody() async {
+    final response = await http.get(
+      Uri.parse(
+        'https://apps-assets.vercel.app/barabans/egypt.png',
+      ),
+    );
+
+    if (response.statusCode == 200) {
+      return response.bodyBytes;
+    } else {
+      logger.info(
+        'Fortune wheel image response status code is: ${response.statusCode}',
       );
       return null;
     }
