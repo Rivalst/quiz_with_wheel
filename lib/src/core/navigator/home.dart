@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_with_wheel/src/features/fortune_wheel/fortune_wheel_screen.dart';
+import 'package:quiz_with_wheel/src/features/quiz/quiz_screen.dart';
 import 'package:quiz_with_wheel/src/features/start/start_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,6 +17,10 @@ class HomeScreen extends StatelessWidget {
         switch (settings.name) {
           case 'home/start':
             builder = (BuildContext _) => const StartScreen();
+          case 'home/quiz':
+            builder = (BuildContext _) => const QuizScreen();
+          case 'home/wheel':
+            builder = (BuildContext _) => const FortuneWheelScreen();
           default:
             throw Exception('Invalid route: ${settings.name}');
         }

@@ -52,7 +52,7 @@ class _StartViewState extends State<StartView> {
                           textColor: AppColors.whiteBlue,
                           buttonColor: AppColors.black,
                           borderColor: Colors.transparent,
-                          onTap: () => _startQuizTapped,
+                          onTap: () => _startQuizTapped(context),
                         ),
                         const SizedBox(height: 15.0),
                         Button(
