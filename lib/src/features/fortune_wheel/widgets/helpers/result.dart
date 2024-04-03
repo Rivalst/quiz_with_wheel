@@ -32,7 +32,13 @@ class _ResultWidgetState extends State<ResultWidget> {
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Align(
         alignment: Alignment.bottomCenter,
-        child: Text(asset),
+        child: Text(
+          asset,
+          style: const TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
     );
   }
