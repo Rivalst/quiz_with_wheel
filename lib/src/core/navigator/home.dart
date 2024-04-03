@@ -26,9 +26,13 @@ class HomeScreen extends StatelessWidget {
                   child: const QuizScreen(),
                 );
           case 'home/wheel':
+            final scoreMap = settings.arguments as Map<String, dynamic>;
+            final score = scoreMap['score'];
             builder = (BuildContext _) => BlocProvider(
                   create: (context) => FortuneWheelBloc(),
-                  child: const FortuneWheelScreen(),
+                  child: FortuneWheelScreen(
+                    result: score,
+                  ),
                 );
           default:
             throw Exception('Invalid route: ${settings.name}');

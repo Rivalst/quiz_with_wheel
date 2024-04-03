@@ -131,7 +131,8 @@ class _QuizScreenState extends State<QuizScreen> with TickerProviderStateMixin {
     );
 
     if (isLast) {
-      Navigator.pushReplacementNamed(context, 'home/wheel');
+      Navigator.pushReplacementNamed(context, 'home/wheel',
+          arguments: {'score': scoreBloc.state.score});
     }
   }
 

@@ -9,7 +9,11 @@ import 'package:quiz_with_wheel/src/features/fortune_wheel/widgets/helpers/butto
 import 'package:quiz_with_wheel/src/features/fortune_wheel/widgets/helpers/result.dart';
 
 class FortuneWheelScreen extends StatefulWidget {
-  const FortuneWheelScreen({super.key});
+  final int result;
+  const FortuneWheelScreen({
+    required this.result,
+    super.key,
+  });
 
   @override
   State<FortuneWheelScreen> createState() => _FortuneWheelScreenState();
@@ -74,6 +78,7 @@ class _FortuneWheelScreenState extends State<FortuneWheelScreen>
                             padding: const EdgeInsets.only(bottom: 20.0),
                             child: ResultWidget(
                               items: state.items,
+                              result: widget.result,
                               angle: angle,
                               current: _current,
                               value: value,
