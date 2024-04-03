@@ -14,13 +14,19 @@ class Root extends StatelessWidget {
         initial: () {
           return const Scaffold();
         },
-        loading: (splash, _) {
+        loading: (splash, _, __) {
           return SplashScreen(imageBytes: splash);
         },
-        loaded: (quizzes, splash, quizStart) {
+        loaded: (quizzes, splash, quizStart, fortuneWheel) {
           return const HomeScreen();
         },
-        error: (quizzes, splashImage, quizStartImage, messages) {
+        error: (
+          quizzes,
+          splashImage,
+          quizStartImage,
+          fortuneWheelImage,
+          messages,
+        ) {
           // in this place we can added error screen
           return ColoredBox(
             color: Colors.red,

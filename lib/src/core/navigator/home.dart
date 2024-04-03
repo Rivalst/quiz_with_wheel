@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_with_wheel/src/features/fortune_wheel/bloc/bloc/fortune_bloc.dart';
 import 'package:quiz_with_wheel/src/features/fortune_wheel/fortune_wheel_screen.dart';
 import 'package:quiz_with_wheel/src/features/quiz/bloc/quiz_score_bloc.dart';
 import 'package:quiz_with_wheel/src/features/quiz/quiz_screen.dart';
@@ -25,7 +26,10 @@ class HomeScreen extends StatelessWidget {
                   child: const QuizScreen(),
                 );
           case 'home/wheel':
-            builder = (BuildContext _) => const FortuneWheelScreen();
+            builder = (BuildContext _) => BlocProvider(
+                  create: (context) => FortuneWheelBloc(),
+                  child: const FortuneWheelScreen(),
+                );
           default:
             throw Exception('Invalid route: ${settings.name}');
         }

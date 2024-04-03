@@ -293,7 +293,7 @@ mixin _$QuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)
         error,
   }) =>
       throw _privateConstructorUsedError;
@@ -307,7 +307,7 @@ mixin _$QuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
   }) =>
       throw _privateConstructorUsedError;
@@ -321,7 +321,7 @@ mixin _$QuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
     required TResult orElse(),
   }) =>
@@ -418,7 +418,7 @@ class _$InitialQuizzesStateImpl extends _InitialQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)
         error,
   }) {
     return initial();
@@ -435,7 +435,7 @@ class _$InitialQuizzesStateImpl extends _InitialQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
   }) {
     return initial?.call();
@@ -452,7 +452,7 @@ class _$InitialQuizzesStateImpl extends _InitialQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
     required TResult orElse(),
   }) {
@@ -606,7 +606,7 @@ class _$LoadingQuizzesStateImpl extends _LoadingQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)
         error,
   }) {
     return loading(
@@ -624,7 +624,7 @@ class _$LoadingQuizzesStateImpl extends _LoadingQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
   }) {
     return loading?.call(
@@ -642,7 +642,7 @@ class _$LoadingQuizzesStateImpl extends _LoadingQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
     required TResult orElse(),
   }) {
@@ -824,7 +824,7 @@ class _$LoadedQuizzesStateImpl extends _LoadedQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)
         error,
   }) {
     return loaded(
@@ -842,7 +842,7 @@ class _$LoadedQuizzesStateImpl extends _LoadedQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
   }) {
     return loaded?.call(
@@ -860,7 +860,7 @@ class _$LoadedQuizzesStateImpl extends _LoadedQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
     required TResult orElse(),
   }) {
@@ -936,6 +936,7 @@ abstract class _$$ErrorQuizzesStateImplCopyWith<$Res> {
       {List<Quiz>? quizzes,
       Uint8List? splashImage,
       Uint8List? quizStartImage,
+      Uint8List? fortuneWheel,
       String message});
 }
 
@@ -953,6 +954,7 @@ class __$$ErrorQuizzesStateImplCopyWithImpl<$Res>
     Object? quizzes = freezed,
     Object? splashImage = freezed,
     Object? quizStartImage = freezed,
+    Object? fortuneWheel = freezed,
     Object? message = null,
   }) {
     return _then(_$ErrorQuizzesStateImpl(
@@ -967,6 +969,10 @@ class __$$ErrorQuizzesStateImplCopyWithImpl<$Res>
       quizStartImage: freezed == quizStartImage
           ? _value.quizStartImage
           : quizStartImage // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      fortuneWheel: freezed == fortuneWheel
+          ? _value.fortuneWheel
+          : fortuneWheel // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
       message: null == message
           ? _value.message
@@ -983,6 +989,7 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
       {final List<Quiz>? quizzes = const [],
       this.splashImage = null,
       this.quizStartImage = null,
+      this.fortuneWheel = null,
       this.message = 'Error'})
       : _quizzes = quizzes,
         super._();
@@ -1006,11 +1013,14 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
   final Uint8List? quizStartImage;
   @override
   @JsonKey()
+  final Uint8List? fortuneWheel;
+  @override
+  @JsonKey()
   final String message;
 
   @override
   String toString() {
-    return 'QuizzesState.error(quizzes: $quizzes, splashImage: $splashImage, quizStartImage: $quizStartImage, message: $message)';
+    return 'QuizzesState.error(quizzes: $quizzes, splashImage: $splashImage, quizStartImage: $quizStartImage, fortuneWheel: $fortuneWheel, message: $message)';
   }
 
   @override
@@ -1023,6 +1033,8 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
                 .equals(other.splashImage, splashImage) &&
             const DeepCollectionEquality()
                 .equals(other.quizStartImage, quizStartImage) &&
+            const DeepCollectionEquality()
+                .equals(other.fortuneWheel, fortuneWheel) &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1032,6 +1044,7 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
       const DeepCollectionEquality().hash(_quizzes),
       const DeepCollectionEquality().hash(splashImage),
       const DeepCollectionEquality().hash(quizStartImage),
+      const DeepCollectionEquality().hash(fortuneWheel),
       message);
 
   @JsonKey(ignore: true)
@@ -1052,10 +1065,10 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)
         loaded,
     required TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)
         error,
   }) {
-    return error(quizzes, splashImage, quizStartImage, message);
+    return error(quizzes, splashImage, quizStartImage, fortuneWheel, message);
   }
 
   @override
@@ -1069,10 +1082,11 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult? Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
   }) {
-    return error?.call(quizzes, splashImage, quizStartImage, message);
+    return error?.call(
+        quizzes, splashImage, quizStartImage, fortuneWheel, message);
   }
 
   @override
@@ -1086,12 +1100,12 @@ class _$ErrorQuizzesStateImpl extends _ErrorQuizzesState {
             Uint8List? quizStartImageBytes, Uint8List? fortuneWheelBytes)?
         loaded,
     TResult Function(List<Quiz>? quizzes, Uint8List? splashImage,
-            Uint8List? quizStartImage, String message)?
+            Uint8List? quizStartImage, Uint8List? fortuneWheel, String message)?
         error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(quizzes, splashImage, quizStartImage, message);
+      return error(quizzes, splashImage, quizStartImage, fortuneWheel, message);
     }
     return orElse();
   }
@@ -1139,12 +1153,14 @@ abstract class _ErrorQuizzesState extends QuizzesState {
       {final List<Quiz>? quizzes,
       final Uint8List? splashImage,
       final Uint8List? quizStartImage,
+      final Uint8List? fortuneWheel,
       final String message}) = _$ErrorQuizzesStateImpl;
   const _ErrorQuizzesState._() : super._();
 
   List<Quiz>? get quizzes;
   Uint8List? get splashImage;
   Uint8List? get quizStartImage;
+  Uint8List? get fortuneWheel;
   String get message;
   @JsonKey(ignore: true)
   _$$ErrorQuizzesStateImplCopyWith<_$ErrorQuizzesStateImpl> get copyWith =>

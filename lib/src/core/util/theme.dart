@@ -15,6 +15,7 @@ abstract class AppColors {
   static const black = Color(0xFF363636);
   static const blue = Color(0xFF665ad6);
   static const deepBlue = Color(0xFF5a53c6);
+  static const yellow = Color.fromARGB(255, 238, 235, 28);
 
   static const purple = Color(0xFF9838bb);
   static const lightPurple = Color(0xFFa75ac4);

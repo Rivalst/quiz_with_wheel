@@ -25,28 +25,28 @@ class QuizzesState with _$QuizzesState {
         initial: () => null,
         loading: (_, quizStart, __) => quizStart,
         loaded: (_, __, start, ___) => start,
-        error: (_, __, start, ___) => start,
+        error: (_, __, start, ___, ____) => start,
       );
 
   Uint8List? get splashImage => when<Uint8List?>(
         initial: () => null,
         loading: (splash, _, __) => splash,
         loaded: (_, splash, __, ___) => splash,
-        error: (_, splash, __, ___) => splash,
+        error: (_, splash, __, ___, ____) => splash,
       );
 
   Uint8List? get fortuneWheelImage => when<Uint8List?>(
         initial: () => null,
-        loading: (splash, _, __) => splash,
+        loading: (_, __, fortuneWheel) => fortuneWheel,
         loaded: (_, __, ___, fortuneWheel) => fortuneWheel,
-        error: (_, splash, __, ___) => splash,
+        error: (_, __, ___, fortuneWheel, ____) => fortuneWheel,
       );
 
   List<Quiz>? get quizzes => when<List<Quiz>?>(
         initial: () => null,
         loading: (_, __, ___) => null,
         loaded: (quizzes, _, __, ___) => quizzes,
-        error: (quizzes, _, __, ___) => quizzes,
+        error: (quizzes, _, __, ___, ____) => quizzes,
       );
 
   const factory QuizzesState.initial() = _InitialQuizzesState;
@@ -68,6 +68,7 @@ class QuizzesState with _$QuizzesState {
     @Default([]) List<Quiz>? quizzes,
     @Default(null) Uint8List? splashImage,
     @Default(null) Uint8List? quizStartImage,
+    @Default(null) Uint8List? fortuneWheel,
     @Default('Error') String message,
   }) = _ErrorQuizzesState;
 }
