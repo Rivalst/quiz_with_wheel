@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_with_wheel/src/core/app/bloc/quiz_bloc.dart';
+import 'package:quiz_with_wheel/src/core/navigator/home.dart';
 import 'package:quiz_with_wheel/src/features/splash/splash_screen.dart';
 
 class Root extends StatelessWidget {
@@ -11,13 +12,13 @@ class Root extends StatelessWidget {
     return BlocBuilder<QuizBloc, QuizzesState>(builder: (context, state) {
       return state.when(
         initial: () {
-          return Scaffold();
+          return const Scaffold();
         },
         loading: (splash, _) {
           return SplashScreen(imageBytes: splash);
         },
         loaded: (quizzes, splash, quizStart) {
-          return SplashScreen(imageBytes: splash);
+          return const HomeScreen();
         },
         error: (quizzes, splashImage, quizStartImage, messages) {
           // in this place we can added error screen

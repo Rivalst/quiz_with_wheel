@@ -48,20 +48,19 @@ class ImageDataProviderImpl extends ImageDataProvider {
   }
 
   Future<Uint8List?> _startQuizBody() async {
-    return null;
-    // final response = await http.get(
-    //   Uri.parse(
-    //     'https://apps-assets.vercel.app/illustrations/undraw_Questions_re_1fy7',
-    //   ),
-    // );
+    final response = await http.get(
+      Uri.parse(
+        'https://apps-assets.vercel.app/illustrations/undraw_Questions_re_1fy7.png',
+      ),
+    );
 
-    // if (response.statusCode == 200) {
-    //   return response.bodyBytes;
-    // } else {
-    //   logger.info(
-    //     'Quiz start image response status code is: ${response.statusCode}',
-    //   );
-    //   return null;
-    // }
+    if (response.statusCode == 200) {
+      return response.bodyBytes;
+    } else {
+      logger.info(
+        'Quiz start image response status code is: ${response.statusCode}',
+      );
+      return null;
+    }
   }
 }
